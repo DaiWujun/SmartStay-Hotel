@@ -33,8 +33,7 @@ class FaceDicOperator:
             for key, value in face_dic.items():
                 if value1 == value:
                     return key
-                else:
-                    return -2
+            return -2
 
     @staticmethod
     def add_face_to_the_dic(string) -> bool:
@@ -46,7 +45,7 @@ class FaceDicOperator:
         else:
             with open('../faces_saved/face_dictionary.json', 'r') as face_dic_file:
                 face_dic = json.load(face_dic_file)
-                new_key = max(face_dic.keys()) + 1
+                new_key = int(max(face_dic.keys())) + 1
         #   add
         with open('../faces_saved/face_dictionary.json', 'w') as face_dic_file:
             face_dic[new_key] = string
@@ -58,3 +57,4 @@ if __name__ == '__main__':
     face_dic_operator = FaceDicOperator()
     # face_dic_operator.add_face_to_the_dic('strauss')
     print(f'{face_dic_operator.search_face_in_the_dic_by_key("0")}')
+    print(f'{face_dic_operator.search_face_in_the_dic_by_value("test2")}')

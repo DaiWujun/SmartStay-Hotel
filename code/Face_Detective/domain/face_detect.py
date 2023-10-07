@@ -26,7 +26,7 @@ class FaceDetector:
     #   detect face by trained recognizer
     def face_detect(self, img):  # img should be already opened
         #   init the recognizer
-        recognizer = cv.face.LBPHFaceRecognizer_create()
+        recognizer = cv.face.LBPHFaceRecognizer.create()
         recognizer.read('../trainer/test/test.yml')
 
         #   get the faces list
@@ -67,4 +67,3 @@ if __name__ == '__main__':
             break
 
     cv.destroyAllWindows()
-
