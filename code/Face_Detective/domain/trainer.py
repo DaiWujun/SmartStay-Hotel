@@ -80,14 +80,14 @@ def train(data_path, save_path):
     recognizer.train(np.array(face_datas, dtype=object), np.array(labels, dtype=np.int32))
 
     #   save the recognizer
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
-
-    full_path = os.path.join(save_path, os.path.basename(save_path) + '.yml')
-    recognizer.write(full_path)
+    # if not os.path.exists(save_path):
+    #     os.makedirs(save_path)
+    #
+    # full_path = os.path.join(save_path, os.path.basename(save_path) + '.yml')
+    recognizer.write(save_path + '/trainer.yml')
 
 
 if __name__ == '__main__':
     data_path = '../faces_saved'
-    save_path = '../trainer/test2'
+    save_path = '../trainer'
     train(data_path, save_path)
