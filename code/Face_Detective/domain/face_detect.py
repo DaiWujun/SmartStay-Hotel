@@ -27,7 +27,7 @@ class FaceDetector:
     def face_detect(self, img):  # img should be already opened
         #   init the recognizer
         recognizer = cv.face.LBPHFaceRecognizer.create()
-        recognizer.read('../trainer/test/test.yml')
+        recognizer.read('../trainer/trainer.yml')
 
         #   get the faces list
         gray_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)

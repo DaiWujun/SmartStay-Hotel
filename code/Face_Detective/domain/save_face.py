@@ -4,7 +4,7 @@ from save_img import save_image
 import json
 
 
-def save_face_through_capture(Name):
+def save_face_through_capture(name):
     # get the capture
     cap = cv.VideoCapture(0)
 
@@ -27,7 +27,7 @@ def save_face_through_capture(Name):
                 if 1 == len(faces):
 
                     #   save image and then show the image rectangled
-                    save_image(frame, '../faces_saved/' + str(Name), str(Name) + str(num) + '.jpg')
+                    save_image(frame, '../faces_saved/' + str(name), str(name) + str(num) + '.jpg')
                     for x, y, w, h in faces:
                         cv.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 5)
                         cv.imshow('test', frame)
@@ -38,9 +38,9 @@ def save_face_through_capture(Name):
                     if num == 1:
                         face_data_dic = {}
                     else:
-                        with open('../faces_saved/' + str(Name) + '/face_data.json', 'r') as face_data_dic_file:
+                        with open('../faces_saved/' + str(name) + '/face_data.json', 'r') as face_data_dic_file:
                             face_data_dic = json.load(face_data_dic_file)
-                    with open('../faces_saved/' + str(Name) + '/face_data.json', 'w') as face_data_dic_file:
+                    with open('../faces_saved/' + str(name) + '/face_data.json', 'w') as face_data_dic_file:
                         face_data_dic[num] = faces.tolist()
                         json.dump(face_data_dic, face_data_dic_file)
 
